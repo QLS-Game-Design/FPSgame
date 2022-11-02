@@ -13,12 +13,16 @@ public class PlayerMovement : MonoBehaviour
     {
         
     }
-    
-     
+    private void OnCollisionEnter(Collision other) {
+        canJump = true;
+    }
+    private void OnCollisionExit(Collision other) {
+        canJump = false;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if ( canJump && Input.GetKey(KeyCode.Space))
         {
             GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * jump_height);
         }
