@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
      
     // Update is called once per frame
     void Update()
-    {
         if (Input.GetKey(KeyCode.Space))
         {
             GetComponent<Rigidbody>().AddForce(transform.TransformDirection(Vector3.up) * jump_height);
